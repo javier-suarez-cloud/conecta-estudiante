@@ -1,0 +1,13 @@
+.contenedor-contacto {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.contenedor-contacto h2 {
+  margin-top: 0;
+  color: #2e7d32;
+}

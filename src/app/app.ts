@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CabeceraComponent } from './components/cabecera/cabecera.component';
-import { MenuComponent } from './components/menu/menu.component';
+
+import { Cabecera } from './components/cabecera/cabecera';
+import { Menu } from './components/menu/menu';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CabeceraComponent, MenuComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+    Cabecera,
+    Menu,
+    RouterOutlet
+  ],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class AppComponent {}
+export class App {
+
+}

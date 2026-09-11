@@ -1,22 +1,34 @@
 import { Component } from '@angular/core';
 
-interface Actividad {
-  nombre: string;
-  descripcion: string;
-  horario: string;
-}
-
 @Component({
   selector: 'app-actividades',
-  standalone: true,
-  templateUrl: './actividades.component.html',
-  styleUrl: './actividades.component.css'
+  imports: [],
+  templateUrl: './actividades.html',
+  styleUrl: './actividades.css'
 })
-export class ActividadesComponent {
-  actividades: Actividad[] = [
-    { nombre: 'Taller de Programación Web', descripcion: 'Desarrollo moderno con Angular.', horario: 'Lunes 14:00 - 16:00' },
-    { nombre: 'Club de Robótica', descripcion: 'Diseño y desarrollo de prototipos electrónicos.', horario: 'Martes 10:00 - 12:00' },
-    { nombre: 'Taller de Liderazgo', descripcion: 'Desarrollo de habilidades blandas y trabajo en equipo.', horario: 'Miércoles 15:00 - 17:00' },
-    { nombre: 'Feria de Innovación', descripcion: 'Exposición de proyectos finales de estudiantes.', horario: 'Jueves 11:00 - 13:00' }
+export class Actividades {
+
+  actividades = [
+    {
+      nombre: 'Taller de Programación Web',
+      descripcion: 'Desarrollo de aplicaciones con Angular.',
+      horario: 'Lunes 14:00 - 16:00'
+    },
+    {
+      nombre: 'Club de Robótica',
+      descripcion: 'Construcción de prototipos con Arduino.',
+      horario: 'Martes 10:00 - 12:00'
+    },
+    {
+      nombre: 'Taller de Liderazgo',
+      descripcion: 'Habilidades blandas y trabajo en equipo.',
+      horario: 'Miércoles 15:00 - 17:00'
+    },
+    {
+      nombre: 'Feria de Innovación',
+      descripcion: 'Exposición de proyectos de estudiantes.',
+      horario: 'Jueves 11:00 - 13:00'
+    }
   ];
+
 }

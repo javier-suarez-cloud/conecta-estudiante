@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  imports: [],
   selector: 'app-inicio',
-  styleUrl: './inicio.css',
+  imports: [],
   templateUrl: './inicio.html',
+  styleUrl: './inicio.css'
 })
-export class Inicio {}
+export class Inicio {
+
+  mensaje: string = 'Portal de actividades y talleres del semestre.';
+
+}

@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { InicioComponent } from './pages/inicio/inicio.component';
-import { ActividadesComponent } from './pages/actividades/actividades.component';
-import { ContactoComponent } from './pages/contacto/contacto.component';
-import { InscripcionComponent } from './pages/inscripcion/inscripcion.component';
+import { Inicio } from './pages/inicio/inicio';
+import { Actividades } from './pages/actividades/actividades';
+import { Contacto } from './pages/contacto/contacto';
+import { Inscripcion } from './pages/inscripcion/inscripcion';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
-  { path: 'inicio', component: InicioComponent },
-  { path: 'actividades', component: ActividadesComponent },
-  { path: 'contacto', component: ContactoComponent },
-  { path: 'inscripcion', component: InscripcionComponent },
-  { path: '**', redirectTo: 'inicio' }
+  { path: 'inicio', component: Inicio },
+  { path: 'actividades', component: Actividades },
+  { path: 'contacto', component: Contacto },
+  { path: 'inscripcion', component: Inscripcion },
+  { path: '**', redirectTo: 'inicio' },
 ];

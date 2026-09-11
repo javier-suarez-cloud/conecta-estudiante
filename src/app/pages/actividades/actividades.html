@@ -1,10 +1,17 @@
-<h2>Talleres y Actividades Disponibles</h2>
-<div class="grid-actividades">
+<section class="contenedor-actividades">
+
+  <h2>Actividades y Talleres</h2>
+
+  <p>Estas son las actividades disponibles durante el semestre.</p>
+
   @for (actividad of actividades; track actividad.nombre) {
-    <div class="tarjeta">
+
+    <div class="actividad">
       <h3>{{ actividad.nombre }}</h3>
       <p>{{ actividad.descripcion }}</p>
       <p><strong>Horario:</strong> {{ actividad.horario }}</p>
     </div>
+
   }
-</div>
+
+</section>

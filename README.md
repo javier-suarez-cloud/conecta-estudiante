@@ -1,59 +1,79 @@
-# ConectaEstudiante
+# Conecta Estudiante
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+Proyecto del electivo de Angular. Es un portal donde los estudiantes pueden ver las actividades y talleres del semestre, revisar los datos de contacto y enviar una solicitud de inscripción.
 
-## Development server
+La aplicación es una SPA: la cabecera y el menú quedan siempre visibles y solo cambia el contenido del centro según la opción que se elija en el menú.
 
-To start a local development server, run:
+## Versión
 
-```bash
+Angular 22.1.7, con componentes standalone y CSS.
+
+## Como ejecutar el proyecto
+
+Instalar las dependencias:
+
+```
+npm install
+```
+
+Levantar el servidor:
+
+```
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Y entrar a http://localhost:4200/
 
-## Code scaffolding
+Para compilar se usa `ng build`.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Componentes
 
-```bash
-ng generate component component-name
-```
+En `components/` están los dos que se mantienen fijos:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Cabecera**: el título y subtítulo del portal.
+- **Menu**: la barra de navegación, hecha con routerLink y routerLinkActive para marcar la opción activa.
 
-```bash
-ng generate --help
-```
+En `pages/` están las cuatro vistas:
 
-## Building
+- **Inicio**: mensaje de bienvenida.
+- **Actividades**: las cuatro actividades. Están guardadas en un arreglo en el archivo .ts y se muestran en el HTML con @for e interpolación.
+- **Contacto**: correo, teléfono y horario de atención.
+- **Inscripcion**: el formulario reactivo.
 
-To build the project run:
+El componente App es el que junta todo: llama a la cabecera, al menú y deja el router-outlet donde se cargan las vistas.
 
-```bash
-ng build
-```
+## Rutas
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Están en `src/app/app.routes.ts` y se registran con provideRouter(routes) en `app.config.ts`.
 
-## Running unit tests
+| Ruta | Componente |
+|---|---|
+| `/` | redirige a inicio |
+| `/inicio` | Inicio |
+| `/actividades` | Actividades |
+| `/contacto` | Contacto |
+| `/inscripcion` | Inscripcion |
+| `**` | redirige a inicio |
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+La última es para que cualquier dirección que no exista vuelva al inicio en vez de quedar en blanco.
 
-```bash
-ng test
-```
+## El formulario
 
-## Running end-to-end tests
+Está hecho con ReactiveFormsModule, FormGroup, FormControl y Validators. Son siete campos:
 
-For end-to-end (e2e) testing, run:
+- nombre y apellido: obligatorios y con mínimo 3 caracteres
+- correo: obligatorio y con formato de correo
+- carrera, actividad y jornada: obligatorios, son listas desplegables
+- comentario: es el único opcional
 
-```bash
-ng e2e
-```
+Cuando el formulario es válido muestra un aviso de que la inscripción se registró, imprime los datos en la consola con console.log() y limpia los campos con reset(). Si está incompleto muestra otro aviso y ejecuta markAllAsTouched(), que hace que aparezcan los mensajes rojos debajo de cada campo que falta.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Etapas
 
-## Additional Resources
+**Etapa 1 - estructura inicial.** Creé el proyecto con ng new y generé los componentes de la cabecera, el menú y las cuatro vistas.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Etapa 2 - rutas y navegación.** Configuré las rutas, puse el router-outlet en el componente principal y armé el menú con routerLink y routerLinkActive.
+
+**Etapa 3 - formulario de inscripción.** Hice el formulario reactivo con sus validaciones y los mensajes de error, y el listado de actividades con @for.
+
+**Etapa 4 - estilos y readme.** Apliqué el CSS de cada componente, revisé que la navegación funcionara bien, compilé con ng build y escribí esta documentación.

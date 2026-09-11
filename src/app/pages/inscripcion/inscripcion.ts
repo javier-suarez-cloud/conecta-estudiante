@@ -1,35 +1,61 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  ReactiveFormsModule,
+  FormGroup,
+  FormControl,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-inscripcion',
-  standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './inscripcion.component.html',
-  styleUrl: './inscripcion.component.css'
+  templateUrl: './inscripcion.html',
+  styleUrl: './inscripcion.css'
 })
-export class InscripcionComponent {
-  private fb = inject(FormBuilder);
-  
-  mensajeExito: string = '';
+export class Inscripcion {
 
-  formInscripcion: FormGroup = this.fb.group({
-    nombre: ['', [Validators.required, Validators.minLength(3)]],
-    apellido: ['', [Validators.required, Validators.minLength(3)]],
-    correo: ['', [Validators.required, Validators.email]],
-    carrera: ['', Validators.required],
-    actividad: ['', Validators.required],
-    jornada: ['', Validators.required],
-    comentario: ['']
+  formularioInscripcion = new FormGroup({
+    nombre: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3)
+    ]),
+    apellido: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3)
+    ]),
+    correo: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    carrera: new FormControl('', [
+      Validators.required
+    ]),
+    actividad: new FormControl('', [
+      Validators.required
+    ]),
+    jornada: new FormControl('', [
+      Validators.required
+    ]),
+    comentario: new FormControl('')
   });
 
-  onSubmit(): void {
-    if (this.formInscripcion.valid) {
-      console.log('Datos enviados:', this.formInscripcion.value);
-      this.mensajeExito = '¡Solicitud de inscripción registrada con éxito!';
-      this.formInscripcion.reset();
+  enviarInscripcion() {
+    if (this.formularioInscripcion.valid) {
+      console.log('Inscripcion enviada:', this.formularioInscripcion.value);
+      alert('Inscripcion registrada correctamente');
+      this.formularioInscripcion.reset({
+        nombre: '',
+        apellido: '',
+        correo: '',
+        carrera: '',
+        actividad: '',
+        jornada: '',
+        comentario: ''
+      });
     } else {
-      this.formInscripcion.markAllAsTouched();
+      alert('Debe completar correctamente los campos obligatorios');
+      this.formularioInscripcion.markAllAsTouched();
     }
   }
+
 }

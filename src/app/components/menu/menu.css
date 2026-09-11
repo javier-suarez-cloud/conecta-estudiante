@@ -1,0 +1,49 @@
+.menu {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddddd;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style: none;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 25px;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+.menu a {
+  text-decoration: none;
+
+  color: #333333;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  padding: 10px 15px;
+
+  border-radius: 6px;
+
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background-color: #e8f5e9;
+
+  color: #7d792e;
+}
+
+.menu a.activo {
+  background-color: #717d2e;
+
+  color: white;
+}

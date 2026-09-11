@@ -1,0 +1,29 @@
+.contenedor-actividades {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.contenedor-actividades h2 {
+  margin-top: 0;
+  color: #2e7d32;
+}
+
+.actividad {
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.actividad h3 {
+  margin-top: 0;
+  color: #2e7d32;
+}
+
+.actividad p {
+  margin: 5px 0 0 0;
+}
