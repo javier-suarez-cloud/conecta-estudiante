@@ -1,1 +1,10 @@
-<p>actividades works!</p>
+<h2>Talleres y Actividades Disponibles</h2>
+<div class="grid-actividades">
+  @for (actividad of actividades; track actividad.nombre) {
+    <div class="tarjeta">
+      <h3>{{ actividad.nombre }}</h3>
+      <p>{{ actividad.descripcion }}</p>
+      <p><strong>Horario:</strong> {{ actividad.horario }}</p>
+    </div>
+  }
+</div>
